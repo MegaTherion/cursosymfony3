@@ -1,0 +1,8 @@
+<html>
+<body>
+<h1>Recetas</h1>
+	{% for receta in recetas %}
+		<p><b>{{ receta.nombre }}</b> ({{ receta.dificultad }})</p>
+	{% endfor %}
+</body>
+</html>
