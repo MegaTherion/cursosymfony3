@@ -28,6 +28,11 @@ class Autor
      */
     private $nombre;
 
+    /**
+     * @ORM\Column(name="fecha_nac", type="date")
+     */
+     private $fechaNac;
+
 
     /**
      * Get id
@@ -63,4 +68,3 @@ class Autor
         return $this->nombre;
     }
 }
-

@@ -159,4 +159,28 @@ class Receta
     {
         return $this->visto;
     }
+
+    /**
+     * Set autor
+     *
+     * @param \AppBundle\Entity\Autor $autor
+     *
+     * @return Receta
+     */
+    public function setAutor(\AppBundle\Entity\Autor $autor = null)
+    {
+        $this->autor = $autor;
+
+        return $this;
+    }
+
+    /**
+     * Get autor
+     *
+     * @return \AppBundle\Entity\Autor
+     */
+    public function getAutor()
+    {
+        return $this->autor;
+    }
 }

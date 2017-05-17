@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Recetas list</h1>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Dificultad</th>
+                <th>Descripcion</th>
+                <th>Visto</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for recetum in recetas %}
+            <tr>
+                <td><a href="{{ path('receta_show', { 'id': recetum.id }) }}">{{ recetum.id }}</a></td>
+                <td>{{ recetum.nombre }}</td>
+                <td>{{ recetum.dificultad }}</td>
+                <td>{{ recetum.descripcion }}</td>
+                <td>{{ recetum.visto }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('receta_show', { 'id': recetum.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('receta_edit', { 'id': recetum.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('receta_new') }}">Create a new recetum</a>
+        </li>
+    </ul>
+{% endblock %}
