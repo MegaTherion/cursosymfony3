@@ -2,12 +2,14 @@
 
 {% block body %}
     <h1>Recetum creation</h1>
-
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
     {{ form_end(form) }}
-
+    </div>
+</div>
     <ul>
         <li>
             <a href="{{ path('receta_index') }}">Back to the list</a>

@@ -5,6 +5,8 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class RecetaType extends AbstractType
 {
@@ -14,10 +16,18 @@ class RecetaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('nombre')
-                ->add('dificultad')
+                ->add('dificultad', ChoiceType::class, array(
+                    'choices'=>array(
+                        'Facil'=>'Facil',
+                        'Medio'=>'Medio',
+                        'Dificil'=>'Dificil'
+                        ),
+                    ))
                 ->add('descripcion')
                 ->add('visto')
-                ->add('autor');
+                ->add('autor')
+                ->add('brochure', FileType::class, array('label'=>'Archivo a cargar'))
+                ;
     }
     
     /**

@@ -14,10 +14,13 @@ class AutorType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombre');
-        $builder->add('fechaNac', BirthdayType::class, array(
-            'label'=>'Fecha de nacimiento',
-            ));
+        $builder->add('nombre')
+                ->add('fechaNac', BirthdayType::class, array(
+                    'label'=>'Fecha de nacimiento',
+                    ))
+                ->add('edad')
+                ->add('apellido')
+        ;
     }
     
     /**

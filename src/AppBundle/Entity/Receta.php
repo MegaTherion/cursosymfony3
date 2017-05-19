@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Receta
@@ -52,6 +53,27 @@ class Receta
      * @ORM\JoinColumn(name="autor_id", referencedColumnName="id")
      */
      private $autor;
+
+    /**
+     * @ORM\Column(type="string", length=200)
+     *
+     * @Assert\NotBlank(message="Por favor cargue una imagen.")
+     * @Assert\Image()
+     */
+    private $brochure;
+
+
+    public function getBrochure()
+    {
+        return $this->brochure;
+    }
+
+    public function setBrochure($brochure)
+    {
+        $this->brochure = $brochure;
+
+        return $this;
+    }
 
 
     /**
